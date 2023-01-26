@@ -1,39 +1,36 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
-import { PetRoutes } from '../pets';
-import { LoginPage, RegisterPage } from '../auth';
-import { PrivateRoute } from './PrivateRoute';
-import { PublicRoute } from './PublicRoute';
-import { HomePage } from '../pets/pages/HomePage';
+import { GenericRoutes } from "../generic";
+import { LoginPage, RegisterPage } from "../auth";
+import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
 export const AppRouter = () => {
   return (
     <>
+      <Routes>
+        <Route
+          path="login/*"
+          element={
+            <PublicRoute>
+              <Routes>
+                <Route path="/" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+              </Routes>
+              
+            </PublicRoute>
+          }
+        />
 
-        <Routes>
-            
-            <Route path="/" element={ <HomePage/> }
-            />
-            
-            <Route path="login/*" element={
-                <PublicRoute>
-                  <Routes>
-                    <Route path="/" element={<LoginPage />} />
-                    <Route path="/register" element={<RegisterPage />} />
-                  </Routes>
-                </PublicRoute>
-              }
-            />
-
-            <Route path="/*" element={
-              <PrivateRoute>
-                <PetRoutes />
-              </PrivateRoute>
-              } 
-            />
-
-        </Routes>
-    
+        <Route
+          path="/*"
+          element={
+            <PrivateRoute>
+              <GenericRoutes /> 
+            </PrivateRoute>
+          }
+        />
+      </Routes>
     </>
-  )
-}
+  );
+};

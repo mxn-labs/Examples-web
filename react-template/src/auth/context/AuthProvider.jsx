@@ -19,7 +19,11 @@ export const AuthProvider = ({ children }) => {
   const [authState, dispatch] = useReducer(authReducer, {}, init);
 
   useEffect(() => {
-    checkToken();
+    // checkToken();
+    dispatch({
+      type: types.login,
+      payload: { id: "123", name: "Juan Escutia" },
+    });
   }, []);
 
   const checkToken = async () => {
@@ -37,7 +41,10 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (email, password) => {
     try {
-      const { data } = await exampleApi.post("users/login", { email, password });
+      const { data } = await exampleApi.post("users/login", {
+        email,
+        password,
+      });
       const { token, user } = data;
       Cookies.set("token", token);
       dispatch({ type: types.login, payload: user });
@@ -58,7 +65,7 @@ export const AuthProvider = ({ children }) => {
         hasError: false,
       };
     } catch (error) {
-      console.log(error)
+      console.log(error);
       if (axios.isAxiosError(error)) {
         return {
           hasError: true,

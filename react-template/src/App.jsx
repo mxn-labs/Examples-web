@@ -1,8 +1,11 @@
+import { AppRouter } from "./routes/AppRouter";
+import { AuthProvider } from "./auth";
+
 const App = () => {
   return (
-    <div>
-      <h1>Plantilla React</h1>
-    </div>
+    <AuthProvider>
+      <AppRouter />
+    </AuthProvider>
   );
 };
 
