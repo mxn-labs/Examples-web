@@ -38,7 +38,7 @@ export const RegisterPage = () => {
       <div className="row">
         <div className="col-md-6 offset-md-3">
           <h2 className="text-center text-dark mt-5">Registro de Usuario</h2>
-          <div className="text-center mb-5 text-dark fs-5">React-Template</div>
+          <div className="text-center mb-5 text-dark fs-5">React-PWa-Template</div>
           <div className="card my-5 shadow-lg">
             <form
               className="card-body cardbody-color p-lg-5"
