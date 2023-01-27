@@ -19,11 +19,7 @@ export const AuthProvider = ({ children }) => {
   const [authState, dispatch] = useReducer(authReducer, {}, init);
 
   useEffect(() => {
-    // checkToken();
-    dispatch({
-      type: types.login,
-      payload: { id: "123", name: "Juan Escutia" },
-    });
+    checkToken();
   }, []);
 
   const checkToken = async () => {
