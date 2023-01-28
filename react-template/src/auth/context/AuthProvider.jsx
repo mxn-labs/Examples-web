@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
         headers: { Authorization: `${Cookies.get("token")}` },
       });
       const { token, user } = data;
-      Cookies.set("token", token);
+      Cookies.set("token", token, {expires: 30});
       dispatch({ type: types.login, payload: user });
     } catch (error) {
       Cookies.remove("token");
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
         password,
       });
       const { token, user } = data;
-      Cookies.set("token", token);
+      Cookies.set("token", token, {expires: 30});
       dispatch({ type: types.login, payload: user });
       return true;
     } catch (error) {
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data } = await exampleApi.post("users/register", new_user);
       const { token, user } = data;
-      Cookies.set("token", token);
+      Cookies.set("token", token, {expires: 30});
       dispatch({ type: types.login, payload: user });
       return {
         hasError: false,
