@@ -1,6 +1,6 @@
 import { GenericLayout } from "@/components/layouts";
 
-const third = () => {
+const ThirdPage = () => {
   return (
     <GenericLayout title="Otra página más">
       <div>
@@ -10,4 +10,4 @@ const third = () => {
   );
 };
 
-export default third;
+export default ThirdPage;
