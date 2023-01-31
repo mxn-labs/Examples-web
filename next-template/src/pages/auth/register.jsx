@@ -1,12 +1,32 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { signIn, getSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { isEmail } from "../../utils/validations";
-import logo from "../../next.svg";
 import { AuthLayout } from "@/components/layouts/AuthLayout";
+import { AuthContext } from "@/context/auth";
+import logo from "../../next.svg";
 
 const RegisterPage = () => {
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const { registerUser } = useContext(AuthContext);
+
+  const onRegisterForm = async ({ name, email, password }) => {
+    setShowError(false);
+    const { hasError, message } = await registerUser(name, email, password);
+
+    if (hasError) {
+      setShowError(true);
+      setErrorMessage(message);
+      setTimeout(() => setShowError(false), 3000);
+      return;
+    }
+
+    await signIn("credentials", { email, password });
+  };
+
   const {
     register,
     handleSubmit,
@@ -16,7 +36,11 @@ const RegisterPage = () => {
   return (
     <AuthLayout title="Registro de usuario">
       <div className="card my-5 shadow-lg">
-        <form className="card-body cardbody-color p-lg-5" noValidate>
+        <form
+          className="card-body cardbody-color p-lg-5"
+          onSubmit={handleSubmit(onRegisterForm)}
+          noValidate
+        >
           <div className="text-center">
             <Image
               src={logo}
@@ -129,13 +153,13 @@ const RegisterPage = () => {
             <div className="mb-4"></div>
           )}
 
-          {/* {showError ? (
+          {showError ? (
             <div className="">
-              <p className="text-danger fs-5">{showMessage}</p>
+              <p className="text-danger fs-5">{errorMessage}</p>
             </div>
           ) : (
             <></>
-          )} */}
+          )}
 
           <div className="text-center">
             <button
@@ -159,6 +183,23 @@ const RegisterPage = () => {
       </div>
     </AuthLayout>
   );
+};
+
+export const getServerSideProps = async ({ req }) => {
+  const session = await getSession({ req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default RegisterPage;

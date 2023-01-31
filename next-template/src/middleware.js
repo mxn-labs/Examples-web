@@ -5,6 +5,6 @@ export const config = {
         "/",
         "/second",
         "/third",
-        "/api/:path*"
+        // "/api/:path*"
     ],
 };

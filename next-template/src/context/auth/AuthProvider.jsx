@@ -1,5 +1,4 @@
 import { useReducer, useEffect } from "react";
-import { useRouter } from "next/router";
 import { useSession, signOut } from "next-auth/react";
 import axios from "axios";
 
@@ -19,7 +18,6 @@ const init = () => {
 export const AuthProvider = ({ children }) => {
   const [authState, dispatch] = useReducer(authReducer, {}, init);
   const { data, status } = useSession();
-  const router = useRouter();
 
   useEffect(() => {
     if (status === "authenticated") {
@@ -28,6 +26,7 @@ export const AuthProvider = ({ children }) => {
   }, [status, data]);
 
   const registerUser = async (name, email, password) => {
+    console.log("entre al provider");
     try {
       await exampleApi.post("/user/register", {
         name,
@@ -42,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       if (axios.isAxiosError(error)) {
         return {
           hasError: true,
-          message: error.message,
+          message: error.response.data.message,
         };
       }
 

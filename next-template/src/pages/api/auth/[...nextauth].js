@@ -16,19 +16,9 @@ export default NextAuth({
                 password: { label: 'Contraseña:', type: 'password', placeholder: 'Contraseña' },
             },
             async authorize(credentials) {
-                // console.log({credentials});
-                // return { name: 'Juan', correo: 'juan@google.com', role: 'admin' };
-
                 return await checkUserEmailPassword(credentials.email, credentials.password);
-                // return { name: 'Juan', correo: 'juan@google.com', role: 'admin' };
-
             }
         }),
-
-
-
-
-
     ],
 
     // Custom Pages
@@ -79,8 +69,6 @@ export default NextAuth({
 
             session.accessToken = token.accessToken;
             session.user = token.user;
-
-
             return session;
         }
 

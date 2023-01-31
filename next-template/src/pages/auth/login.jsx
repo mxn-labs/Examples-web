@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import { signIn, getSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { isEmail } from "../../utils/validations";
-import logo from "../../next.svg";
 import { AuthLayout } from "@/components/layouts/AuthLayout";
+import logo from "../../next.svg";
 
 const LoginPage = () => {
   const [showError, setShowError] = useState(false);
