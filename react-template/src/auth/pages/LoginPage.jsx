@@ -69,7 +69,6 @@ export const LoginPage = () => {
                   })}
                 />
               </div>
-
               {!!errors.email ? (
                 <div className="mb-4">
                   <span className="text-danger">{errors.email.message}</span>
@@ -93,7 +92,6 @@ export const LoginPage = () => {
                   })}
                 />
               </div>
-
               {!!errors.password ? (
                 <div className="mb-4">
                   <span className="text-danger">{errors.password.message}</span>

@@ -6,9 +6,7 @@ import { checkUserEmailPassword } from '../../../config/dbUser';
 export default NextAuth({
     // Configure one or more authentication providers
     providers: [
-
         // ...add more providers here
-
         Credentials({
             name: 'Custom Login',
             credentials: {
@@ -38,7 +36,6 @@ export default NextAuth({
         updateAge: 86400, // cada día
     },
 
-
     callbacks: {
 
         async jwt({ token, account, user }) {
@@ -57,22 +54,16 @@ export default NextAuth({
                         token.user = user;
                         break;
                 }
-
             }
-
             return token;
         },
 
-
         async session({ session, token, user }) {
             // console.log({ session, token, user });
-
             session.accessToken = token.accessToken;
             session.user = token.user;
             return session;
         }
-
-
     }
 
 });

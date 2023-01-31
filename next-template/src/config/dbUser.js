@@ -1,8 +1,6 @@
 import bcrypt from 'bcryptjs';
 import { pool } from "./db";
 
-
-
 export const testConnection = async () => {
     // console.log(email, password);
     const [result] = await pool.query("SELECT NOW()");
@@ -22,8 +20,6 @@ export const checkUserEmailPassword = async (email, password) => {
     if (!bcrypt.compareSync(password, result[0].password)) {
         return null;
     }
-
-
 
     return {
         name: result[0].name,

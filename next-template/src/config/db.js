@@ -8,5 +8,4 @@ const pool = createPool({
     password: process.env.DB_PASSWORD
 });
 
-
 export {pool};

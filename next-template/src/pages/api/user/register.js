@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs';
 import { pool } from '../../../config/db';
 import { isValidEmail } from '../../../utils/validations';
 
-
 export default function handler(req, res) {
 
     switch (req.method) {
@@ -64,11 +63,7 @@ const registerUser = async (req, res) => {
         });
     }
 
-
-
-
     return res.status(200).json({ message: 'Usuario creado correctamente' });
-
 
 }
 

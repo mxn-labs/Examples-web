@@ -6,13 +6,10 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { AuthContext } from '@/context/auth';
 
-
-
 export const GenericNavbar = () => {
   const { data } = useSession();
   const { asPath } = useRouter();
   const { logout } = useContext(AuthContext);
-
 
   return (
     <Navbar
