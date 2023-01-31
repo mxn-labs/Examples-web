@@ -1,11 +1,18 @@
+import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { AuthContext } from '@/context/auth';
+
 
 
 export const GenericNavbar = () => {
-  const { asPath, push } = useRouter();
+  const { data } = useSession();
+  const { asPath } = useRouter();
+  const { logout } = useContext(AuthContext);
+
 
   return (
     <Navbar
@@ -44,9 +51,10 @@ export const GenericNavbar = () => {
         <Nav>
           <div className="d-flex justify-content-end">
             <span className="nav-item nav-link text-white text-primary">
-              Usuario
+              {data?.user.name}
             </span>
             <button
+              onClick={logout}
               className="ms-2 nav-item nav-link btn btn-danger text-white"
               style={{ width: "100px" }}
             >
