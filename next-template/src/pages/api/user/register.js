@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import { pool } from '../../../config/db';
+import User from "../../../models/user";
 import { isValidEmail } from '../../../utils/validations';
 
 export default function handler(req, res) {
@@ -22,6 +22,18 @@ const registerUser = async (req, res) => {
         password,
     } = req.body;
 
+    const existeEmail = await User.findOne({
+        where: {
+            email
+        }
+    });
+
+    if (existeEmail) {
+        return res.status(400).json({
+            message: 'Ya existe un usuario con el email ' + email
+        });
+    }
+
     if (password.length < 6) {
         return res.status(400).json({
             message: 'La contraseña debe de ser de 6 caracteres'
@@ -40,20 +52,13 @@ const registerUser = async (req, res) => {
         });
     }
 
-    const [checkEmail] = await pool.query("SELECT * FROM users WHERE email = ?", [email]);
-
-    if (checkEmail[0] !== undefined) {
-        return res.status(400).json({
-            message: 'No puede usar ese correo'
-        })
-    }
-
     try {
-        await pool.query("INSERT INTO users (name, email, password) VALUES(?, ?, ?)", [
+        const new_user = User.build({
             name,
             email,
-            bcrypt.hashSync(password),
-        ]);
+            password: bcrypt.hashSync(password),
+        });
+        await new_user.save();
 
 
     } catch (error) {
