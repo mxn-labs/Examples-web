@@ -1,10 +1,13 @@
-import { useContext } from 'react';
-import { useRouter } from 'next/router';
+import { useContext } from "react";
+
+import { useRouter } from "next/router";
 import Link from "next/link";
+
 import { useSession } from "next-auth/react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { AuthContext } from '@/context/auth';
+
+import { AuthContext } from "@/context/auth";
 
 export const GenericNavbar = () => {
   const { data } = useSession();
@@ -27,19 +30,23 @@ export const GenericNavbar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
           <Link
-            className={`nav-item nav-link  ${asPath === '/' ? "active" : ""}`}
+            className={`nav-item nav-link  ${asPath === "/" ? "active" : ""}`}
             href="/"
           >
             HomePage
           </Link>
           <Link
-            className={`nav-item nav-link  ${asPath === '/second' ? "active" : ""}`}
+            className={`nav-item nav-link  ${
+              asPath === "/second" ? "active" : ""
+            }`}
             href="/second"
           >
             SecondPage
           </Link>
           <Link
-            className={`nav-item nav-link  ${asPath === '/third' ? "active" : ""}`}
+            className={`nav-item nav-link  ${
+              asPath === "/third" ? "active" : ""
+            }`}
             href="/third"
           >
             ThirdPage

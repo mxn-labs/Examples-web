@@ -1,12 +1,12 @@
 import { useReducer, useEffect } from "react";
+
 import { useSession, signOut } from "next-auth/react";
 import axios from "axios";
 
 import { AuthContext } from "./AuthContext";
 import { authReducer } from "./authReducer";
-
-import { exampleApi } from "../../api";
-import { types } from "../../types/types";
+import { exampleApi } from "@/api";
+import { types } from "@/types/types";
 
 const init = () => {
   return {

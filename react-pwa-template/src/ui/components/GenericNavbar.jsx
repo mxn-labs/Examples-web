@@ -1,7 +1,9 @@
 import { useContext } from "react";
+
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+
 import { AuthContext } from "../../auth/context/AuthContext";
 
 export const GenericNavbar = () => {

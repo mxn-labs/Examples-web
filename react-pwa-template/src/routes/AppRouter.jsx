@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 
 import { GenericRoutes } from "../generic";
-import { LoginPage, RegisterPage } from "../auth";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
+import { LoginPage, RegisterPage } from "../auth";
 
 export const AppRouter = () => {
   return (

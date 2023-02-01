@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const users_1 = __importDefault(require("../routes/users"));
 const cors_1 = __importDefault(require("cors"));
 const connection_1 = __importDefault(require("../db/connection"));
+const users_1 = __importDefault(require("../routes/users"));
 class Server {
     constructor() {
         this.apiPaths = {

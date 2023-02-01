@@ -1,4 +1,5 @@
 import Head from "next/head";
+
 import { GenericNavbar } from "../ui";
 
 export const GenericLayout = ({ children, title }) => {

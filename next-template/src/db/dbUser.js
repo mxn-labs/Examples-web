@@ -1,5 +1,6 @@
-import bcrypt from 'bcryptjs';
-import User from '@/models/user';
+import bcrypt from "bcryptjs";
+
+import User from "@/models/user";
 
 export const checkUserEmailPassword = async (email, password) => {
     const user = await User.findOne({

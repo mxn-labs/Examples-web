@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
+
 import User from "../models/user";
 import { jwt, validations } from "../utils";
 

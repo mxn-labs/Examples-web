@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
+
 import { GenericNavbar } from "../../ui";
-import { HomePage, SecondPage } from "../pages";
-import { ThirdPage } from "../pages/ThirdPage";
+import { HomePage, SecondPage, ThirdPage } from "../pages";
 
 export const GenericRoutes = () => {
   return (

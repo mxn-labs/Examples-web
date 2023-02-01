@@ -1,7 +1,7 @@
-import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react";
-import { AuthProvider } from "../context/auth";
 
+import { AuthProvider } from "@/context/auth";
+import "@/styles/globals.css";
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.css";
 

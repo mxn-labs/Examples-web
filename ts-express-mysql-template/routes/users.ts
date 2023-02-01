@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import { registerUser, loginUser, checkJWT } from "../controllers/users";
 
 const router = Router();

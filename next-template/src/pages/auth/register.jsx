@@ -1,12 +1,15 @@
 import { useContext, useState } from "react";
+
 import { signIn, getSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
+
 import { useForm } from "react-hook-form";
-import { isEmail } from "../../utils/validations";
+
+import { isEmail } from "@/utils/validations";
 import { AuthLayout } from "@/components/layouts/AuthLayout";
 import { AuthContext } from "@/context/auth";
-import logo from "../../next.svg";
+import logo from "@/next.svg";
 
 const RegisterPage = () => {
   const [showError, setShowError] = useState(false);

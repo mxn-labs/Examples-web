@@ -1,6 +1,7 @@
-import bcrypt from 'bcryptjs';
-import User from "../../../models/user";
-import { isValidEmail } from '../../../utils/validations';
+import bcrypt from "bcryptjs";
+
+import User from "@/models/user";
+import { isValidEmail } from "@/utils/validations";
 
 export default function handler(req, res) {
 

@@ -1,10 +1,10 @@
 import { useReducer, useEffect } from "react";
+
 import Cookies from "js-cookie";
 import axios from "axios";
 
 import { AuthContext } from "./AuthContext";
 import { authReducer } from "./authReducer";
-
 import { exampleApi } from "../../api";
 import { types } from "../types/types";
 

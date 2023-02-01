@@ -1,7 +1,7 @@
-import NextAuth from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
 
-import { checkUserEmailPassword } from '../../../db/dbUser';
+import { checkUserEmailPassword } from "@/db/dbUser";
 
 export default NextAuth({
     // Configure one or more authentication providers

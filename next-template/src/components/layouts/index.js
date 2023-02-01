@@ -1,2 +1,2 @@
-export * from './GenericLayout';
-export * from './AuthLayout';
+export * from "./GenericLayout";
+export * from "./AuthLayout";
