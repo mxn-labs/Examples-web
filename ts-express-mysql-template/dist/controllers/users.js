@@ -71,7 +71,8 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email = '', password = '' } = req.body;
     const user = yield user_1.default.findOne({
         where: {
-            email
+            email,
+            status: 1
         }
     });
     if (!user) {
@@ -106,6 +107,9 @@ const checkJWT = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield user_1.default.findByPk(userId);
     if (!user) {
         return res.status(400).json({ message: 'No existe usuario con ese id' });
+    }
+    if (user.getDataValue('status') === false) {
+        return res.status(400).json({ message: 'El usuario no es válido' });
     }
     const id = user.getDataValue('id');
     const name = user.getDataValue('name');

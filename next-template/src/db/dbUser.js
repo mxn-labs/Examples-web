@@ -5,7 +5,8 @@ import User from "@/models/user";
 export const checkUserEmailPassword = async (email, password) => {
     const user = await User.findOne({
         where: {
-            email
+            email,
+            status: 1
         }
     });
 
@@ -22,7 +23,8 @@ export const checkUserEmailPassword = async (email, password) => {
 
     return {
         id,
-        name
+        name,
+        email
     }
 
 }

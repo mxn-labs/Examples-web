@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.css";
 
 export default function App({ Component, pageProps }) {
   return (
-    <SessionProvider>
+    <SessionProvider refetchInterval={5 * 60} refetchOnWindowFocus={true}>
       <AuthProvider>
         <Component {...pageProps} />
       </AuthProvider>

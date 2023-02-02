@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
 import { checkUserEmailPassword } from "@/db/dbUser";
+import User from "@/models/user";
 
 export default NextAuth({
     // Configure one or more authentication providers
@@ -59,9 +60,15 @@ export default NextAuth({
         },
 
         async session({ session, token, user }) {
+            console.log(session);
+
             // console.log({ session, token, user });
             session.accessToken = token.accessToken;
             session.user = token.user;
+            const userdb = await User.findOne({ where: { email: session.user.email } })
+            if (userdb.status === false) {
+                session.error = "inactive-user"
+            }
             return session;
         }
     }

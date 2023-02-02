@@ -14,6 +14,9 @@ const User = connection_1.default.define('User', {
     },
     password: {
         type: sequelize_1.DataTypes.STRING
+    },
+    status: {
+        type: sequelize_1.DataTypes.BOOLEAN
     }
 }, { timestamps: false, tableName: 'users' });
 exports.default = User;

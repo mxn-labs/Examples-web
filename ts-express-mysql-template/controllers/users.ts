@@ -70,7 +70,8 @@ export const loginUser = async (req: Request, res: Response) => {
     const { email = '', password = '' } = req.body;
     const user = await User.findOne({
         where: {
-            email
+            email,
+            status: 1
         }
     });
 
@@ -112,6 +113,11 @@ export const checkJWT = async (req: Request, res: Response) => {
 
     if (!user) {
         return res.status(400).json({ message: 'No existe usuario con ese id' })
+    }
+
+
+    if (user.getDataValue('status') === false) {
+        return res.status(400).json({ message: 'El usuario no es válido' })
     }
 
     const id = user.getDataValue('id');
