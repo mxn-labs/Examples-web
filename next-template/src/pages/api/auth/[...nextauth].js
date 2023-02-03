@@ -34,7 +34,6 @@ export default NextAuth({
     session: {
         maxAge: 2592000, /// 30d
         strategy: 'jwt',
-        updateAge: 86400, // cada día
     },
 
     callbacks: {
@@ -60,7 +59,6 @@ export default NextAuth({
         },
 
         async session({ session, token, user }) {
-            console.log(session);
 
             // console.log({ session, token, user });
             session.accessToken = token.accessToken;

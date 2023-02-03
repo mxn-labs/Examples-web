@@ -20,6 +20,10 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     checkToken();
+    const interval = setInterval(() => {
+      checkToken();
+    }, 5 * 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const checkToken = async () => {
@@ -28,10 +32,11 @@ export const AuthProvider = ({ children }) => {
         headers: { Authorization: `${Cookies.get("token")}` },
       });
       const { token, user } = data;
-      Cookies.set("token", token, {expires: 30});
+      Cookies.set("token", token, { expires: 30 });
       dispatch({ type: types.login, payload: user });
     } catch (error) {
       Cookies.remove("token");
+      dispatch({ type: types.logout });
     }
   };
 
@@ -42,7 +47,7 @@ export const AuthProvider = ({ children }) => {
         password,
       });
       const { token, user } = data;
-      Cookies.set("token", token, {expires: 30});
+      Cookies.set("token", token, { expires: 30 });
       dispatch({ type: types.login, payload: user });
       return true;
     } catch (error) {
@@ -55,7 +60,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const { data } = await exampleApi.post("users/register", new_user);
       const { token, user } = data;
-      Cookies.set("token", token, {expires: 30});
+      Cookies.set("token", token, { expires: 30 });
       dispatch({ type: types.login, payload: user });
       return {
         hasError: false,
@@ -89,8 +94,8 @@ export const AuthProvider = ({ children }) => {
 
         // Methods
         loginUser,
-        logoutUser,
         registerUser,
+        logoutUser,
       }}
     >
       {children}

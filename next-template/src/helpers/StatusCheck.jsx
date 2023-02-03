@@ -12,6 +12,6 @@ export const StatusCheck = () => {
       // Sign out here
       signOut();
     }
-  }, [sessionData?.error, router.asPath]);
+  }, [sessionData?.error, router]);
   return null;
 };
