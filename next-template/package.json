@@ -22,7 +22,6 @@
     "react-bootstrap": "^2.7.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.0",
-    "react-spinners": "^0.13.8",
     "sequelize": "^6.28.0"
   }
 }
