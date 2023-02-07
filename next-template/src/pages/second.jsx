@@ -1,5 +1,5 @@
 import { GenericLayout } from "@/components/layouts";
-import { FullScreenLoading } from "@/components/ui/FullScreenLoading";
+import { FullScreenLoading } from "@/components/ui";
 
 const SecondPage = () => {
   return (
