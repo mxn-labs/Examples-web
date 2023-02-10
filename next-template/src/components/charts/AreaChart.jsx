@@ -14,7 +14,7 @@ const series = [
 
 const options = {
   title: {
-    text: 'AreaChart',
+    text: "AreaChart",
     align: "left",
     margin: 10,
     offsetX: 0,
@@ -25,6 +25,16 @@ const options = {
       fontWeight: "bold",
       fontFamily: undefined,
       color: "#263238",
+    },
+  },
+  theme: {
+    mode: "light",
+    palette: "palette1",
+    monochrome: {
+      enabled: false,
+      color: "#255aee",
+      shadeTo: "light",
+      shadeIntensity: 0.65,
     },
   },
   chart: {

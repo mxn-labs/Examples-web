@@ -9,7 +9,7 @@ const series = short_labels.map(() =>
 
 const options = {
   title: {
-    text: 'PieChart',
+    text: "PieChart",
     align: "left",
     margin: 10,
     offsetX: 0,
@@ -22,7 +22,16 @@ const options = {
       color: "#263238",
     },
   },
-
+  theme: {
+    mode: "light",
+    palette: "palette1",
+    monochrome: {
+      enabled: false,
+      color: "#255aee",
+      shadeTo: "light",
+      shadeIntensity: 0.65,
+    },
+  },
   chart: {
     toolbar: {
       show: true,
