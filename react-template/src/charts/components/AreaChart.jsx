@@ -1,32 +1,18 @@
-import dynamic from "next/dynamic";
-
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+import Chart from "react-apexcharts";
 import faker from "faker";
 
-import { labels } from "@/data/fruits";
+import { labels } from "../../data/fruits";
 
 const series = [
   {
-    name: "Almacén 1",
-    data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-  },
-  {
     name: "Almacén 2",
-    data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-  },
-  {
-    name: "Almacén 3",
-    data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-  },
-  {
-    name: "Almacén 4",
     data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
   },
 ];
 
 const options = {
   title: {
-    text: 'LineChart',
+    text: 'AreaChart',
     align: "left",
     margin: 10,
     offsetX: 0,
@@ -40,7 +26,7 @@ const options = {
     },
   },
   chart: {
-    id: "apexchart-example-line",
+    id: "apexchart-example-area",
     zoom: {
       enabled: true,
       type: "x",
@@ -63,10 +49,10 @@ const options = {
   },
 };
 
-export const LineChart = () => {
+export const AreaChart = () => {
   return (
     <Chart
-      type="line"
+      type="area"
       series={series}
       options={options}
       width={"100%"}

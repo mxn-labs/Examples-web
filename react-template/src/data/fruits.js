@@ -45,3 +45,16 @@ export const labels = [
     "Rambután",
     "Tamarillo",
 ];
+
+export const short_labels = [
+    "Granada",
+    "Grosella",
+    "Higo",
+    "Lima",
+    "Limón",
+    "Mandarina",
+    "Mora",
+    "Naranja",
+    "Níspero",
+    "Pera",
+];

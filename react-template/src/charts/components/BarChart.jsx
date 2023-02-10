@@ -1,9 +1,7 @@
-import dynamic from "next/dynamic";
-
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
+import Chart from "react-apexcharts";
 import faker from "faker";
 
-import { short_labels } from "@/data/fruits";
+import { short_labels } from "../../data/fruits";
 
 const series = [
   {

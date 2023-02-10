@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
-    "apexcharts": "^3.37.0",
     "axios": "^1.2.6",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.3",
