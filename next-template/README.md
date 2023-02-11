@@ -42,4 +42,4 @@ To Visit App:
 
 ## Notes
 
-- To use apexcharts it is necessary to disable the NextJS SSR functions by dynamically importing the package, please see the NextJS documentation for details <https://nextjs.org/docs/advanced-features/dynamic-import>.
+- To use apexcharts it is necessary to disable the NextJS SSR functions by dynamically importing the package, You can see this implementation in the chart components [here](https://gitlab.ensenada.gob.mx/pako/examples/-/tree/main/next-template/src/components/charts), please see the NextJS documentation for details <https://nextjs.org/docs/advanced-features/dynamic-import>.
