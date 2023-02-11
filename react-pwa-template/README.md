@@ -1,6 +1,6 @@
-# React Template
+# React PWA Template
 
-Template with login functionality and chart implementatiom using [CRA](https://create-react-app.dev/)
+Template with login functionality and chart implementatiom using a custom PWA template with CRA <https://create-react-app.dev/docs/making-a-progressive-web-app/>
 
 ## Getting Started
 
@@ -38,3 +38,7 @@ To Visit App:
 - Loading spinner implemented with React-Spinners <https://www.davidhu.io/react-spinners/>
 - Random data implementation with Faker <https://www.npmjs.com/package/faker>
 - Forms implemented using React Hook Form <https://react-hook-form.com/>
+
+## Notes
+
+- For more information about PWA functionality, please see the following example <https://www.simicart.com/blog/pwa-react/>

@@ -31,7 +31,7 @@ To Visit App:
 ## Features
 
 - Using Bootstrap and React-Bootstrap <https://getbootstrap.com/> - <https://react-bootstrap.github.io/>
-- Fetch data using axios - <https://axios-http.com/es/docs/intro>
+- Fetch data using axios <https://axios-http.com/es/docs/intro>
 - Database connection and models implemented with Sequelize and mysql2 <https://sequelize.org/> - <https://github.com/sidorares/node-mysql2#readme>
 - Authentication implemented with NextAuth <https://next-auth.js.org/>
 - Charts implemented using ApexCharts <https://apexcharts.com/>
